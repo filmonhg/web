@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block left %}
+<script type="text/javascript" src="{{ url_for('static', filename='mapdata.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='usmap.js') }}"></script>  
+  <h2> {{ user.nickname }}</h2>
+
+   <table onload="JavaScript:timedRefresh(1000);">
+<td><b>City</b>&nbsp;</td><td><b>State</b>&nbsp;&nbsp;&nbsp;</td><td><b>Count By Year</b>&nbsp;&nbsp;&nbsp;</td>
+    {% for post in posts %}
+    <tr>
+<td> {{post.city}} </td><td>{{post.state}} </td> <td> {{post.count}} </td>
+</tr>
+    {% endfor %}
+</table>    
+<div id="map" style="width: 100%"></div>
+
+{% endblock %}
+{%block right %}
+<table>
+<tr>
+<td> trial right from real time </td>
+</tr>
+</table>
+<form action=".">
+First name:
+<input type="text" name="City" width="0">
+Last name:
+<input type="text" name="State">
+<input type="submit" value="Submit">
+</form>
+
+{% endblock %}
+ %   {% for post in posts %}
+ %   <div><p>{{ post.author.nickname }} says: <b>{{ post.body }}</b></p></div>
+ %   {% endfor %}
