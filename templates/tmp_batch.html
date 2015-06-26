@@ -9,12 +9,17 @@ Year
 </form>
     <h2> Inbound And Outbound Load for {{year}}</h2>
 <script>
+
 //This is for posting count of load for each city inbound and outbound
 var x=0;
 var j=0;
 var bf=0;
+var l=0;
+var m=0;
 var outbound_count=new Array();
 var inbound_count=new Array();
+var outbound_state_count=new Array();
+var inbound_state_count=new Array();
  {% for post in posts %}
 outbound_count[x]='{{post.count}}';
 //bf='{{post.count}}'/500;
@@ -37,16 +42,31 @@ if(('{{post.state}}'=='AS')  || ('{{post.state}}'=='MH') || ('{{post.state}}'=='
 }
 else
 {
-//alert('{{post.state}}');
-//alert(simplemaps_usmap_mapdata.state_specific.'HI');
-simplemaps_usmap_mapdata.state_specific['{{post.state}}'].description='{{post.count}}';
-//alert('{{post.state}}' + simplemaps_usmap_mapdata.data.data.{{post.state}});
+inbound_state_count[l]='{{post.count}}';
+l+=1;
+//simplemaps_usmap_mapdata.state_specific['{{post.state}}'].description='{{post.count}}';
 }
-
 {% endfor %}
-//alert(simplemaps_usmap_mapdata.data.data.TX);
-//simplemaps_usmap_mapdata.data.data.TX=100;
+{% for post in out_state %}
+if(('{{post.state}}'=='AS')  || ('{{post.state}}'=='MH') || ('{{post.state}}'=='PW'))
+{
+//alert('island');
+}
+else
+{
+outbound_state_count[m]='{{post.count}}';
+m+=1;
+//simplemaps_usmap_mapdata.state_specific['{{post.state}}'].description='{{post.count}}';
+}
+{% endfor %}
+
+for(k=0;k<m;k++)
+{
+//simplemaps_usmap_mapdata.state_specific['{{post.state}}'].description='Outbound: '+outbound_state_count[k]+' Inbound: '+inbound_state_count[k];
+}
 </script>
+
+
 <!--
 <table>
 {% for post in in_state %}
@@ -54,6 +74,7 @@ simplemaps_usmap_mapdata.state_specific['{{post.state}}'].description='{{post.co
 <td>{{post.state}}</td><td>{{post.year}}</td><td>{{post.count}}</td>
 </tr>
 {% endfor %}
+
 </table>
 
 <table>

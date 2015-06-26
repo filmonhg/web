@@ -4,10 +4,10 @@ $(function () {
             type: 'bar'
         },
         title: {
-            text: 'Historic World Population by Region'
+            text: 'Top 10 States with Highest Inbound And Outbound Load '
         },
         subtitle: {
-            text: 'Source: Wikipedia.org'
+            text: ''
         },
         xAxis: {
             categories: topstates,
@@ -18,7 +18,7 @@ $(function () {
         yAxis: {
             min: 0,
             title: {
-                text: 'Population (millions)',
+                text: 'Truck Loads (X10000)',
                 align: 'high'
             },
             labels: {
@@ -26,7 +26,7 @@ $(function () {
             }
         },
         tooltip: {
-            valueSuffix: ' millions'
+            valueSuffix: ' X10000'
         },
         plotOptions: {
             bar: {
@@ -50,10 +50,10 @@ $(function () {
             enabled: false
         },
         series: [{
-            name: 'Year 1800',
+            name: 'Inbound',
             data: topinbound
         }, {
-            name: 'Year 1900',
+            name: 'Outbound',
             data: topoutbound
         }]
     });
