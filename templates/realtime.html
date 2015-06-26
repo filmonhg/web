@@ -1,10 +1,10 @@
 {% extends "index.html" %}
 {% block left %}
-<script type="text/javascript" src="{{ url_for('static', filename='mapdata.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='my_map_data.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='usmap.js') }}"></script>  
   <h2> {{ user.nickname }}</h2>
 
-   <table onload="JavaScript:timedRefresh(1000);">
+   <table onload="JavaScript:timedRefresh(500);">
 <td><b>City</b>&nbsp;</td><td><b>State</b>&nbsp;&nbsp;&nbsp;</td><td><b>Count By Year</b>&nbsp;&nbsp;&nbsp;</td>
     {% for post in posts %}
     <tr>
@@ -16,18 +16,6 @@
 
 {% endblock %}
 {%block right %}
-<table>
-<tr>
-<td> trial right from real time </td>
-</tr>
-</table>
-<form action=".">
-First name:
-<input type="text" name="City" width="0">
-Last name:
-<input type="text" name="State">
-<input type="submit" value="Submit">
-</form>
 
 {% endblock %}
  %   {% for post in posts %}

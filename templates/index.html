@@ -33,8 +33,18 @@
 <!-- high chart by Filmon inside head -->
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
    <script src="http://code.highcharts.com/highcharts.js"></script> 
+
+<!-- FOr timer --!>
+<script type="text/JavaScript">
+<!--
+function timedRefresh(timeoutPeriod) {
+        setTimeout("location.reload(true);",timeoutPeriod);
+}
+//   -->
+</script>
+
  </head>
- <body>
+ <body onload="JavaScript:timedRefresh(5000);">
 
    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
      <div class="container">
